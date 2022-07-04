@@ -1,0 +1,37 @@
+{
+  "name": "appoint-me-backend",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --verbose --ci --reporters=default --coverage",
+    "dev": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "transform": {},
+    "resetMocks": true
+  },
+  "keywords": [],
+  "author": "Jacob Turner",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
+    "date-fns": "^2.28.0",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "express-fileupload": "^1.3.1",
+    "express-rate-limit": "^6.3.0",
+    "express-slow-down": "^1.4.0",
+    "express-validator": "^6.14.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.2.8"
+  },
+  "devDependencies": {
+    "jest": "^27.5.1",
+    "node-fetch": "^2.6.7"
+  }
+}
