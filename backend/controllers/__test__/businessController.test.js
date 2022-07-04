@@ -208,9 +208,9 @@ describe('Business controller unit tests:', () => {
             expect(fakeDbCreateBusinessService).toHaveBeenCalledTimes(1)
             expect(fakeDbCreateBusinessService).toHaveBeenCalledWith(business, service)
             expect(res.status).toHaveBeenCalledTimes(1)
-            expect(res.status).toHaveBeenCalledWith(200)
+            expect(res.status).toHaveBeenCalledWith(201)
             expect(res.json).toHaveBeenCalledTimes(1)
-            expect(res.json).toHaveBeenCalledWith({status: "success", updatedData: business})
+            expect(res.json).toHaveBeenCalledWith({status: "success",message: "New service created" , service: business})
         })
 
         test('Returns 404 Bad Request when called with ID not in DB', async () => {
@@ -594,7 +594,7 @@ describe('Business controller unit tests:', () => {
             expect(res.status).toHaveBeenCalledTimes(1)
             expect(res.status).toHaveBeenCalledWith(200)
             expect(res.json).toHaveBeenCalledTimes(1)
-            expect(res.json).toHaveBeenCalledWith({ status: "success", updatedData: updatedService })
+            expect(res.json).toHaveBeenCalledWith({ status: "success", "message": "Service details updated", updatedData: updatedService })
         })
 
         test('returns 400 Bad Request when serviceId not found', async () => {

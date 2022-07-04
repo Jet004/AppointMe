@@ -6,10 +6,9 @@ import { loginUser, logoutUser, registerUser, tokenRefresh } from '../controller
 
 // Import models
 import { DbRegisterUser, DbGetUserByEmail } from '../models/userModel.js'
-import { DbRegisterBusinessRep, DbGetRepByEmail, DbDeleteRep } from '../models/businessRepModel.js'
+import { DbRegisterBusinessRep, DbGetRepByEmail } from '../models/businessRepModel.js'
 import { DbDeleteRefreshToken, DbSaveRefreshToken } from '../models/authModel.js'
 import { DbAddTokenToBlacklist, DbDeleteExpiredTokens } from '../models/authBlacklistModel.js'
-import { DbRegisterIP, DbGetUserIPs } from '../models/ipWhitelistModel.js'
 
 
 // Import validators
@@ -24,7 +23,7 @@ router.route('/register/:userType')
         ubrValidator, 
         passwordValidator, 
         validationCheck, 
-        registerUser(DbRegisterUser, DbGetUserByEmail, DbRegisterBusinessRep, DbGetRepByEmail, DbRegisterIP, DbDeleteRep)
+        registerUser(DbRegisterUser, DbGetUserByEmail, DbRegisterBusinessRep, DbGetRepByEmail)
     )
 
 router.route('/login/:userType')
@@ -38,7 +37,7 @@ router.route('/login/:userType')
                 return res.status(400).json({ status: "error", message: "User already logged in" })
              }
              return next()},
-        loginUser(DbGetUserByEmail, DbGetRepByEmail, DbGetUserIPs, DbSaveRefreshToken)
+        loginUser(DbGetUserByEmail, DbGetRepByEmail, DbSaveRefreshToken)
     )
 
 router.route('/logout')

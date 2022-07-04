@@ -1712,10 +1712,10 @@ describe('Integration Tests:', () => {
 
                 if(response.status != 200) console.log(response, json)
 
-                expect(response.status).toBe(200)
+                expect(response.status).toBe(201)
                 expect(json.status).toBe("success")
-                expect(json.updatedData.email).toBe("jet@jetmandarin.com")
-                expect(json.updatedData.services.length).toBeGreaterThan(0)
+                expect(json.service.email).toBe("jet@jetmandarin.com")
+                expect(json.service.services.length).toBeGreaterThan(0)
             })
 
             test('POST returns 404 Not Found when ID not in DB', async () => {
@@ -1832,7 +1832,7 @@ describe('Integration Tests:', () => {
                 }
                 const response = await fetch(`${domain}/api/businesses/services/${business._id}`, payload2)
                 const json = await response.json()
-                serviceId = json.updatedData.services[0]._id
+                serviceId = json.service.services[0]._id
             })
 
             test('GET returns 200 OK with valid ID and serviceId', async () => {

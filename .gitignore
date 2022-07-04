@@ -4,5 +4,6 @@
 /backend/node_modules/
 /frontend/node_modules/
 /backend/.env
-/frontend/.local.env
+/frontend/.env.local
 /frontend/.next
+/backend/coverage

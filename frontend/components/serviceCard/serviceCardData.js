@@ -51,12 +51,6 @@ export const serviceData = {
             icon: (sx) => (<InventoryRoundedIcon sx={sx} />),
             text: "Manage services",
             path: "/admin/services/5ee9f9f8f9f9f9f9f9f9f9f9"
-        },
-        {
-            title: "access",
-            icon: (sx) => (<ShieldRoundedIcon sx={sx} />),
-            text: "Manage access privileges",
-            path: "/admin/access/5ee9f9f8f9f9f9f9f9f9f9f9"
         }
         // {
         //     title: "business",
