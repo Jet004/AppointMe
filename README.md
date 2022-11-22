@@ -1,1 +1,1 @@
-# AppointMe
+# AppointMe - A Progressive Web Application
