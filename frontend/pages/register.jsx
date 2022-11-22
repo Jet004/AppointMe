@@ -107,7 +107,6 @@ export default function Register() {
     const { handleSubmit, control, formState: { errors } } = useForm({ mode: "onChange", resolver: yupResolver(validationSchema) })
     const [isLoading, setIsLoading] = useState(false)
     const [responseMessage, setResponseMessage] = useState(null)
-    const [userType, setUserType] = useState("user")
     const [form, setForm] = useState({
         fname: "",
         lname: "",
@@ -141,7 +140,7 @@ export default function Register() {
         // Start spinner
         setIsLoading(true)
         // Send fetch request to server
-        fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/auth/register/${userType}`, {
+        fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/auth/register/user`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -196,15 +195,6 @@ export default function Register() {
                         Register
                     </Typography>
                     <Box as="form" sx={styles.form} onSubmit={handleSubmit(handleRegistration)}>
-                        <Tabs 
-                            sx={styles.userToggle}
-                            variant="fullWidth"
-                            value={userType} 
-                            onChange={(e, newValue) => { setUserType(newValue) }}
-                        >
-                            <Tab label="User" value="user" />
-                            <Tab label="Business" value="businessRep" />
-                        </Tabs>
                         <Controller
                             name="fname"
                             control={control}

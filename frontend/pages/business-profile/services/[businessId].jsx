@@ -121,6 +121,9 @@ const styles = {
         width: "90%",
         maxWidth: 800,
         color: "custom.contrastText",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center"
     },
     title: {
         mt: 2
